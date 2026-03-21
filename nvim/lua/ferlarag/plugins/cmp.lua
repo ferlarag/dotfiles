@@ -1,36 +1,39 @@
 return {
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
+	"hrsh7th/nvim-cmp",
+	event = "InsertEnter",
+	dependencies = {
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		{
 			"L3MON4D3/LuaSnip",
-			"onsails/lspkind.nvim",
+			version = "v2.*",
+			build = "make install_jsregexp",
 		},
-		opts = function(_, opts)
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-			local lspkind = require("lspkind")
+		"saadparwaiz1/cmp_luasnip",
+		"rafamadriz/friendly-snippets",
+		"onsails/lspkind.nvim",
+	},
+	config = function()
+		local cmp = require("cmp")
+		local luasnip = require("luasnip")
+		local lspkind = require("lspkind")
 
-			-- Load VSCode-style snippets
-			require("luasnip/loaders/from_vscode").lazy_load()
+		require("luasnip.loaders.from_vscode").lazy_load()
 
-			-- SNIPPETS
-			opts.snippet = {
+		cmp.setup({
+			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
-			}
-
-			-- KEYMAPS
-			opts.mapping = vim.tbl_extend("force", opts.mapping or {}, {
+			},
+			mapping = cmp.mapping.preset.insert({
 				["<C-e>"] = cmp.mapping.select_prev_item(),
 				["<C-n>"] = cmp.mapping.select_next_item(),
 				["<C-b>"] = cmp.mapping.scroll_docs(-1),
 				["<C-f>"] = cmp.mapping.scroll_docs(1),
 				["<C-Space>"] = cmp.mapping.complete(),
-				["<C-y>"] = cmp.config.disable,
 				["<Esc>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
-
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item()
@@ -38,7 +41,6 @@ return {
 						fallback()
 					end
 				end, { "i", "s" }),
-
 				["<S-Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_prev_item()
@@ -48,17 +50,14 @@ return {
 						fallback()
 					end
 				end, { "i", "s" }),
-			})
-
-			-- WINDOW
-			opts.window = {
-				completion = {
-					-- border = "single",
-				},
-			}
-
-			-- FORMATTING (lspkind)
-			opts.formatting = {
+			}),
+			sources = cmp.config.sources({
+				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
+				{ name = "buffer" },
+				{ name = "path" },
+			}),
+			formatting = {
 				fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
 					local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
@@ -67,28 +66,14 @@ return {
 					kind.menu = "    " .. (strings[2] or "")
 					return kind
 				end,
-			}
-
-			-- SOURCES
-			opts.sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "nvim_lua" },
-				{ name = "luasnip" },
-				{ name = "buffer" },
-				{ name = "path" },
-			})
-
-			-- CONFIRM
-			opts.confirm_opts = {
+			},
+			confirm_opts = {
 				behavior = cmp.ConfirmBehavior.Replace,
 				select = false,
-			}
-
-			opts.experimental = {
+			},
+			experimental = {
 				ghost_text = false,
-			}
-
-			return opts
-		end,
-	},
+			},
+		})
+	end,
 }

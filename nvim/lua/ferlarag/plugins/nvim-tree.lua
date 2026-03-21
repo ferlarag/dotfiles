@@ -11,11 +11,7 @@ return {
 		nvimtree.setup({
 			disable_netrw = true,
 			hijack_netrw = true,
-			-- open_on_setup = false,
-			-- ignore_ft_on_setup = {},
-			open_on_tab = false,
 			hijack_cursor = false,
-			update_cwd = true,
 			diagnostics = {
 				enable = true,
 				icons = {
@@ -27,7 +23,6 @@ return {
 			},
 			update_focused_file = {
 				enable = true,
-				update_cwd = true,
 				ignore_list = {},
 			},
 			system_open = {
@@ -76,20 +71,7 @@ return {
 			},
 			view = {
 				width = 35,
-				-- hide_root_folder = true,
 				side = "left",
-				--[[ mappings = {
-					custom_only = false,
-					list = {
-						{ key = "<C-k>", action = "" },
-						{ key = "J", action = "first_sibling" },
-						{ key = "O", action = "expand_all" },
-						{ key = "K", action = "last_sibling" },
-						{ key = "S", action = "system_open" },
-						{ key = "s", action = "search_node" },
-						{ key = "cd", action = "cd" },
-					},
-				}, ]]
 				number = false,
 				relativenumber = false,
 				float = {
