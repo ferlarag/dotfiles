@@ -11,11 +11,9 @@ config.default_cursor_style = "BlinkingBlock"
 config.color_scheme = "Poimandres"
 
 -- font
-config.font = wezterm.font("JetBrains Mono", { weight = "Medium" })
--- config.font = wezterm.font("MesloLGS Nerd Font Mono")
+config.font = wezterm.font("JetBrains Mono", { weight = "Medium" }) -- Another good option "MesloLGS Nerd Font Mono"
 config.font_size = 18 -- 18 default
 config.line_height = 1.9 -- 1.9 default
--- config.window_background_opacity = 1
 config.window_background_opacity = 1
 config.macos_window_background_blur = 20
 
