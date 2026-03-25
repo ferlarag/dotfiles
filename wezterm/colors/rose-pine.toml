@@ -1,0 +1,45 @@
+[colors]
+foreground = "#e0def4"
+background = "#191724"
+cursor_bg = "#524f67"
+cursor_border = "#524f67"
+cursor_fg = "#e0def4"
+selection_bg = "#403d52"
+selection_fg = "#e0def4"
+split = "#6e6a86"
+compose_cursor = "#f6c177"
+scrollbar_thumb = "#1f1d2e"
+
+#        black      red       green     yellow    blue      magenta   cyan      white
+ansi = ["#26233a", "#eb6f92", "#9ccfd8", "#f6c177", "#31748f", "#c4a7e7", "#ebbcba", "#e0def4"]
+brights = ["#6e6a86", "#eb6f92", "#9ccfd8", "#f6c177", "#31748f", "#c4a7e7", "#ebbcba", "#908caa"]
+
+[colors.tab_bar]
+inactive_tab_edge = "#191724"
+background = "#191724"
+
+[colors.tab_bar.active_tab]
+fg_color = "#191724"
+bg_color = "#c4a7e7"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#908caa"
+bg_color = "#1f1d2e"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#ebbcba"
+bg_color = "#26233a"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#c4a7e7"
+bg_color = "#191724"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#908caa"
+bg_color = "#191724"
+
+[metadata]
+aliases = []
+author = "rose-pine"
+name = "Rosé Pine"

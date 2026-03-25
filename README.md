@@ -8,7 +8,7 @@ My personal config files for Neovim, tmux, and WezTerm.
 | ---------- | ---------- | ----------------------- |
 | `nvim/`    | Neovim     | `~/.config/nvim`        |
 | `tmux/`    | tmux       | `~/.tmux.conf`          |
-| `wezterm/` | WezTerm    | `~/.wezterm.lua`        |
+| `wezterm/` | WezTerm    | `~/.config/wezterm/`    |
 
 ## Setting up a new computer
 
@@ -36,7 +36,9 @@ ln -sf ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
 # WezTerm
-ln -sf ~/dotfiles/wezterm/wezterm.lua ~/.wezterm.lua
+mkdir -p ~/.config/wezterm
+ln -sf ~/dotfiles/wezterm ~/.config/wezterm/wezterm
+ln -sf ~/dotfiles/wezterm/colors ~/.config/wezterm/colors
 ```
 
 ### 4. Open Neovim
