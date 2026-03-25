@@ -22,8 +22,8 @@ config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_max_width = 999999
 config.window_padding = {
-	left = 0,
-	right = 0,
+	left = 20,
+	right = 20,
 	top = 0,
 	bottom = 0,
 }
