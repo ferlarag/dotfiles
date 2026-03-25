@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 wezterm.add_to_config_reload_watch_list(wezterm.config_dir)
 
 -- This is where you actually apply your config choices
-config.color_scheme = "Oxocarbon Dark (Gogh)"
+config.color_scheme = "Oxocarbon Light"
 config.default_cursor_style = "BlinkingBlock"
 
 -- font
@@ -22,8 +22,8 @@ config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_max_width = 999999
 config.window_padding = {
-	left = 30,
-	right = 30,
+	left = 0,
+	right = 0,
 	top = 0,
 	bottom = 0,
 }
