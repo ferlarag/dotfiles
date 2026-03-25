@@ -6,9 +6,8 @@ local config = wezterm.config_builder()
 wezterm.add_to_config_reload_watch_list(wezterm.config_dir)
 
 -- This is where you actually apply your config choices
-config.color_scheme = "Poimandres"
+config.color_scheme = "Rosé Pine"
 config.default_cursor_style = "BlinkingBlock"
-config.color_scheme = "Poimandres"
 
 -- font
 config.font = wezterm.font("JetBrains Mono", { weight = "Medium" }) -- Another good option "MesloLGS Nerd Font Mono"

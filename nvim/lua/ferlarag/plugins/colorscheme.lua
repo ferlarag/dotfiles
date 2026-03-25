@@ -1,22 +1,20 @@
 return {
-	"olivercederborg/poimandres.nvim",
+	"rose-pine/neovim",
+	name = "rose-pine",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		require("poimandres").setup({
-			disable_background = true,
-			disable_float_background = true,
-			disable_italics = false,
-			bold_vert_split = false,
-			dim_nc_background = true,
-			-- leave this setup function empty for default config
-			-- or refer to the configuration section
-			-- for configuration options
+		require("rose-pine").setup({
+			variant = "main",
+			dim_inactive_windows = true,
+			styles = {
+				italic = true,
+				transparency = true,
+			},
 		})
 	end,
 
-	-- optionally set the colorscheme within lazy config
 	init = function()
-		vim.cmd("colorscheme poimandres")
+		vim.cmd("colorscheme rose-pine")
 	end,
 }
