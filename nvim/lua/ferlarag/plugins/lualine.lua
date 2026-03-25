@@ -3,7 +3,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		opts = {
 			options = {
-				theme = "rose-pine",
+				theme = "auto",
 				icons_enabled = true,
 				section_separators = {},
 				component_separators = {},
