@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 wezterm.add_to_config_reload_watch_list(wezterm.config_dir)
 
 -- This is where you actually apply your config choices
-config.color_scheme = "Rosé Pine"
+config.color_scheme = "Rosé Pine Dawn"
 config.default_cursor_style = "BlinkingBlock"
 
 -- font
@@ -24,7 +24,7 @@ config.tab_max_width = 999999
 config.window_padding = {
 	left = 30,
 	right = 30,
-	top = 30,
+	top = 0,
 	bottom = 0,
 }
 config.window_decorations = "RESIZE"
