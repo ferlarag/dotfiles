@@ -37,3 +37,13 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- soft wrap for markdown
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.linebreak = true -- wrap at word boundaries, not mid-word
+		vim.opt_local.breakindent = true -- preserve indentation in wrapped lines
+	end,
+})
