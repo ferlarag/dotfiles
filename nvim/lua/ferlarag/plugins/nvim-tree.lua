@@ -101,7 +101,7 @@ return {
 			},
 		})
 
-		vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { fg = "#303030", bg = "NONE" })
+		vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { fg = "#dde1e6", bg = "NONE" })
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness

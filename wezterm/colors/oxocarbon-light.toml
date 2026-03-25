@@ -1,0 +1,45 @@
+[colors]
+foreground = "#161616"
+background = "#f2f4f8"
+cursor_bg = "#393939"
+cursor_border = "#393939"
+cursor_fg = "#f2f4f8"
+selection_bg = "#dde1e6"
+selection_fg = "#161616"
+split = "#878d96"
+compose_cursor = "#ee5396"
+scrollbar_thumb = "#dde1e6"
+
+#        black      red       green     yellow    blue      magenta   cyan      white
+ansi = ["#dde1e6", "#ee5396", "#42be65", "#d4a716", "#0f62fe", "#be95ff", "#08bdba", "#161616"]
+brights = ["#878d96", "#ff7eb6", "#42be65", "#d4a716", "#78a9ff", "#be95ff", "#3ddbd9", "#393939"]
+
+[colors.tab_bar]
+inactive_tab_edge = "#f2f4f8"
+background = "#f2f4f8"
+
+[colors.tab_bar.active_tab]
+fg_color = "#f2f4f8"
+bg_color = "#be95ff"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#878d96"
+bg_color = "#dde1e6"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#ee5396"
+bg_color = "#dde1e6"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#be95ff"
+bg_color = "#f2f4f8"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#878d96"
+bg_color = "#f2f4f8"
+
+[metadata]
+aliases = []
+author = "nyoom-engineering"
+name = "Oxocarbon Light"
