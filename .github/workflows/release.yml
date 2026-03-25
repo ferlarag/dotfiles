@@ -1,0 +1,69 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          # Find the previous tag
+          PREV_TAG=$(git tag --sort=-v:refname | sed -n '2p')
+
+          if [ -z "$PREV_TAG" ]; then
+            RANGE="HEAD"
+          else
+            RANGE="${PREV_TAG}..HEAD"
+          fi
+
+          echo "## What changed" > changelog.md
+          echo "" >> changelog.md
+
+          # Group commits by type
+          for type_label in "update:Changed" "add:Added" "fix:Fixed" "remove:Removed" "chore:Maintenance"; do
+            type="${type_label%%:*}"
+            label="${type_label##*:}"
+            commits=$(git log "$RANGE" --pretty=format:"- %s" --grep="^${type}:" 2>/dev/null || true)
+            if [ -n "$commits" ]; then
+              echo "### $label" >> changelog.md
+              echo "$commits" >> changelog.md
+              echo "" >> changelog.md
+            fi
+          done
+
+          # Catch anything that didn't match a prefix
+          known_types="^(update|add|fix|remove|chore):"
+          other=$(git log "$RANGE" --pretty=format:"%s" | grep -Ev "$known_types" || true)
+          if [ -n "$other" ]; then
+            echo "### Other" >> changelog.md
+            echo "$other" | sed 's/^/- /' >> changelog.md
+            echo "" >> changelog.md
+          fi
+
+          # Append configs snapshot
+          echo "### Configs in this release" >> changelog.md
+          echo "" >> changelog.md
+          echo "| Folder | Config for |" >> changelog.md
+          echo "| ------ | ---------- |" >> changelog.md
+          for dir in */; do
+            dir_name="${dir%/}"
+            echo "| \`${dir_name}/\` | ${dir_name} |" >> changelog.md
+          done
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: changelog.md
+          generate_release_notes: false
