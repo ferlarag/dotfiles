@@ -39,6 +39,7 @@ return {
 				"pyright",
 				"theme_check",
 				"astro",
+				"rust_analyzer",
 			},
 		})
 
