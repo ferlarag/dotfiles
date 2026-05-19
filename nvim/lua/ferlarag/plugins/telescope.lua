@@ -36,6 +36,11 @@ return {
 		telescope.setup({
 			defaults = {
 				path_display = { "smart" },
+				borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+				layout_config = {
+					prompt_position = "top",
+				},
+				sorting_strategy = "ascending",
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -49,6 +54,7 @@ return {
 		})
 
 		telescope.load_extension("fzf")
+
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
