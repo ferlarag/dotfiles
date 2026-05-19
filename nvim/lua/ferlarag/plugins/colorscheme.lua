@@ -1,11 +1,14 @@
 return {
-	"nyoom-engineering/oxocarbon.nvim",
-	name = "oxocarbon",
+	"catppuccin/nvim",
+	name = "catppuccin",
 	lazy = false,
 	priority = 1000,
+	opts = {
+		flavour = "latte",
+	},
 
 	init = function()
-		vim.cmd("colorscheme oxocarbon")
+		vim.cmd("colorscheme catppuccin-latte")
 		vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 
@@ -23,8 +26,8 @@ return {
 		vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
 		vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "NONE" })
 		vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
-		vim.api.nvim_set_hl(0, "CursorLine", { bg = "#dde1e6" })
-		vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { bg = "#dde1e6" })
+		vim.api.nvim_set_hl(0, "CursorLine", { bg = "#ccd0da" })
+		vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { bg = "#ccd0da" })
 		vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
 	end,
 }
