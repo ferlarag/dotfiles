@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 wezterm.add_to_config_reload_watch_list(wezterm.config_dir)
 
 -- This is where you actually apply your config choices
-config.color_scheme = "Oxocarbon Light"
+config.color_scheme = "Catppuccin Latte"
 config.default_cursor_style = "BlinkingBlock"
 
 -- font
