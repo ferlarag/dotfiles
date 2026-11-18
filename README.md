@@ -23,7 +23,7 @@ Download and install [WezTerm](https://wezfurlong.org/wezterm/installation.html)
 ### 2. Clone this repo
 
 ```bash
-git clone https://github.com/<your-username>/dotfiles.git ~/dotfiles
+git clone https://github.com/ferlarag/dotfiles.git ~/dotfiles
 ```
 
 ### 3. Create symlinks
