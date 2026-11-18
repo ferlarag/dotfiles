@@ -1,0 +1,55 @@
+# Omarchy Quattro layout, adapted for macOS and the installed Nerd Font.
+font-family = "MesloLGM Nerd Font Mono"
+font-style = Regular
+font-size = 16
+
+# Miasma palette.
+background = #222222
+foreground = #c2c2b0
+cursor-color = #d7c483
+selection-background = #78824b
+selection-foreground = #c2c2b0
+
+palette = 0=#222222
+palette = 1=#685742
+palette = 2=#5f875f
+palette = 3=#b36d43
+palette = 4=#78824b
+palette = 5=#bb7744
+palette = 6=#c9a554
+palette = 7=#c2c2b0
+palette = 8=#666666
+palette = 9=#685742
+palette = 10=#5f875f
+palette = 11=#b36d43
+palette = 12=#78824b
+palette = 13=#bb7744
+palette = 14=#c9a554
+palette = 15=#d7c483
+
+# Window and cursor styling.
+window-theme = ghostty
+macos-titlebar-style = tabs
+macos-window-buttons = visible
+window-title-font-family = "MesloLGM Nerd Font"
+window-padding-x = 14
+window-padding-y = 14
+background-opacity = 0.88
+background-blur-radius = 24
+confirm-close-surface = false
+resize-overlay = never
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor,ssh-env
+
+# Omarchy-compatible keyboard encoding and clipboard bindings.
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
+keybind = shift+enter=csi:13;2u
+keybind = alt+shift+enter=csi:13;4u
+keybind = super+control+shift+alt+arrow_down=resize_split:down,100
+keybind = super+control+shift+alt+arrow_up=resize_split:up,100
+keybind = super+control+shift+alt+arrow_left=resize_split:left,100
+keybind = super+control+shift+alt+arrow_right=resize_split:right,100
+
+mouse-scroll-multiplier = 0.95
