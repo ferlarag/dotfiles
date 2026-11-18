@@ -1,33 +1,55 @@
 return {
-	"catppuccin/nvim",
-	name = "catppuccin",
+	"OldJobobo/miasma.nvim",
 	lazy = false,
 	priority = 1000,
-	opts = {
-		flavour = "latte",
-	},
+	config = function()
+		-- In Rex, use the active Rex theme (colors/rex.lua)
+		if vim.env.TERM_PROGRAM == "rex" then
+			vim.cmd.colorscheme("rex")
+			return
+		end
 
-	init = function()
-		vim.cmd("colorscheme catppuccin-latte")
-		vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+		vim.opt.background = "dark"
+		vim.cmd.colorscheme("miasma")
 
-		-- nvim-tree
-		vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "NONE" })
-		vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "NONE" })
-		vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", { bg = "NONE" })
+		local transparent_groups = {
+			"Normal",
+			"NormalNC",
+			"NormalFloat",
+			"FloatBorder",
+			"Pmenu",
+			"Terminal",
+			"EndOfBuffer",
+			"FoldColumn",
+			"Folded",
+			"SignColumn",
+			"LineNr",
+			"CursorLineNr",
+			"WhichKeyFloat",
+			"TelescopeBorder",
+			"TelescopeNormal",
+			"TelescopePromptBorder",
+			"TelescopePromptTitle",
+			"NvimTreeNormal",
+			"NvimTreeNormalNC",
+			"NvimTreeVertSplit",
+			"NvimTreeWinSeparator",
+			"NvimTreeEndOfBuffer",
+		}
 
-		-- lualine
-		vim.api.nvim_set_hl(0, "lualine_c_normal", { bg = "NONE" })
-		vim.api.nvim_set_hl(0, "lualine_c_inactive", { bg = "NONE" })
+		local function apply_transparency()
+			for _, group in ipairs(transparent_groups) do
+				local ok, highlight = pcall(vim.api.nvim_get_hl, 0, { name = group, link = false })
+				if ok then
+					highlight.bg = nil
+					vim.api.nvim_set_hl(0, group, highlight)
+				end
+			end
+		end
 
-		-- other UI elements
-		vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
-		vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
-		vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "NONE" })
-		vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
-		vim.api.nvim_set_hl(0, "CursorLine", { bg = "#ccd0da" })
-		vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { bg = "#ccd0da" })
-		vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
+		apply_transparency()
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			callback = vim.schedule_wrap(apply_transparency),
+		})
 	end,
 }

@@ -2,22 +2,9 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
-			local custom_theme = require("lualine.themes.auto")
-			-- Make the lualine background transparent for all modes
-			for _, mode in pairs(custom_theme) do
-				if mode.c then
-					mode.c.bg = "NONE"
-				end
-			end
-			if custom_theme.inactive then
-				for _, section in pairs(custom_theme.inactive) do
-					section.bg = "NONE"
-				end
-			end
-
 			require("lualine").setup({
 			options = {
-				theme = custom_theme,
+				theme = "auto",
 				icons_enabled = true,
 				section_separators = {},
 				component_separators = {},

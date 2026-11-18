@@ -25,10 +25,6 @@ return {
 				enable = true,
 				ignore_list = {},
 			},
-			system_open = {
-				cmd = nil,
-				args = {},
-			},
 			filters = {
 				dotfiles = false,
 				custom = { ".DS_Store" },
@@ -100,8 +96,6 @@ return {
 				},
 			},
 		})
-
-		vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { fg = "#dde1e6", bg = "NONE" })
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness

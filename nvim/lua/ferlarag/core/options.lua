@@ -2,7 +2,8 @@ vim.cmd("let g:netrw_liststyle = 4")
 
 local opt = vim.opt
 
-opt.relativenumber = true
+-- Omarchy keeps line numbers stable instead of making them relative.
+opt.relativenumber = false
 opt.number = true
 
 -- tabs & indentation
@@ -22,7 +23,7 @@ opt.cursorline = true
 -- turn on termguicolors for tokyonight colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
-opt.background = "light" -- colorschemes that can be light or dark will be made light
+opt.background = "dark"
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- backspace
